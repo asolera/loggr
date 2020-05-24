@@ -151,20 +151,20 @@ Output:
 
 | **Method** | **Default** | **Description** |
 |---|---|---|
-| SetDateFormat() | `2006-01-02 15:04:05` | Overrides default date/time format. Layouts must use the reference time `Mon Jan 2 15:04:05 MST 2006` according to the official documentation. |
-| SetCustomLog() | | Allows to create a custom log type. A custom type called `example` will be converted to `[EXAMPLE]`. Custom types should also be defined in `SetAllowedLogs` in order to be printed. This method must be declared BEFORE `SetAllowedLogs` method. |
-| SetAllowedLogs | `info|error` | Defines which log types will be printed. You can use any combination you want. Log types must be joined by pipe (|). You can also use `none` to disable logging and `all` to automatically enable all log types. |
-| Line | | Prints a line. |
-| TimeStart | `default` | Starts a timer for a given label. |
-| TimeEnd | `default` | Ends the timer and prints the difference time in seconds. In order to be displayed, `timer` (or `all`) must be set in `SetAllowedLogs` method. Multiple timers are also allowed. |
-| Info | | Prints the message with `[INFO]` prefix. |
-| Notice | | Prints the message with `[NOTICE]` prefix. |
-| Warning | | Prints the message with `[WARNING]` prefix. |
-| Error | | Prints the message with `[ERROR]` prefix. |
-| FATAL | | Prints the message with `[FATAL]` prefix. |
-| Debug | | Prints the message with `[DEBUG]` prefix. |
-| SQL | | Prints the message with `[SQL]` prefix. |
-| Custom | | Prints the message with a custom prefix. In order to work, the custom log type must be set in `SetCustomLog` method and defined in `SetAllowedLogs` method. First argument is prefix and second argument is the message. Multiple custom log types are also allowed. |
+| SetDateFormat(_`format`_) | `2006-01-02 15:04:05` | Overrides default date/time format.<br>Layouts must use the reference time `Mon Jan 2 15:04:05 MST 2006` according to the official documentation. |
+| SetCustomLog(_`typeName`_) | | Allows to create a custom log type.<br>A custom type called `example` will be converted to `[EXAMPLE]`.<br>Custom types should also be defined in `SetAllowedLogs` in order to be printed.<br>This method must be declared BEFORE `SetAllowedLogs` method. |
+| SetAllowedLogs(_`logTypes`_) | `info|error` | Defines which log types will be printed.<br>You can use any combination you want. Log types must be joined by pipe (|).<br>You can also use `none` to disable logging and `all` to automatically enable all log types. |
+| Line() | | Prints a line. |
+| TimeStart(_`label`_) | `default` | Starts a timer for a given label. |
+| TimeEnd(_`label`_) | `default` | Ends the timer and prints the difference time in seconds.<br>In order to be displayed, `timer` (or `all`) must be set in `SetAllowedLogs` method.<br>Multiple timers are also allowed. |
+| Info(_`message`_) | | Prints the message with `[INFO]` prefix. |
+| Notice(_`message`_) | | Prints the message with `[NOTICE]` prefix. |
+| Warning(_`message`_) | | Prints the message with `[WARNING]` prefix. |
+| Error(_`message`_) | | Prints the message with `[ERROR]` prefix. |
+| FATAL(_`message`_) | | Prints the message with `[FATAL]` prefix. |
+| Debug(_`message`_) | | Prints the message with `[DEBUG]` prefix. |
+| SQL(_`message`_) | | Prints the message with `[SQL]` prefix. |
+| Custom(_`typeName, message`_) | | Prints the message with a custom prefix.<br>In order to work, the custom log type must be set in `SetCustomLog` method and defined in `SetAllowedLogs` method.<br>First argument is prefix and second argument is the message. Multiple custom log types are also allowed. |
 
 ## Contributing
 
