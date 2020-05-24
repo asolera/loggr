@@ -19,9 +19,9 @@ package main
 import "github.com/asolera/loggr"
 
 func main() {
-	logger.Info(logger.Line())
-	logger.Info("Hello world!")
-	logger.Info(logger.Line())
+	loggr.Info(loggr.Line())
+	loggr.Info("Hello world!")
+	loggr.Info(loggr.Line())
 }
 ```
 
@@ -37,27 +37,27 @@ Code output:
 Install Go Loggr library with the following command:
 
 ```sh
-go get github.com/asolera/go-logger/logger
+go get github.com/asolera/loggr
 ```
 
 Import in your code:
 
 ```sh
-import "github.com/asolera/go-logger/logger"
+import "github.com/asolera/loggr"
 ```
 
 Configure log level of your application:
 
 ```go
 func main() {
-	logger.SetAllowedLogs("info|warning|error") // you can also use "none" and "all"
+	loggr.SetAllowedLogs("info|warning|error") // you can also use "none" and "all"
 }
 ```
 
 And start logging:
 
 ```go
-logger.Info("Hello world!")
+loggr.Info("Hello world!")
 ```
 
 ## Configuration
