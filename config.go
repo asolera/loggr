@@ -57,7 +57,7 @@ func SetDateFormat(layout string) {
 	dateFormat = layout
 }
 
-// GetLogTypeStatus returns if a log type is active.
-func GetLogTypeStatus(logType string) bool {
+// getLogTypeStatus returns if a log type is active.
+func getLogTypeStatus(logType string) bool {
 	return allowedLogTypes[logType]
 }

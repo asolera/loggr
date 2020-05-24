@@ -13,7 +13,7 @@ func init() {
 }
 
 func printLog(logType string, text string) {
-	if GetLogTypeStatus(logType) == true {
+	if getLogTypeStatus(logType) == true {
 		logTypePrefix := strings.ToUpper(logType)
 		logString := fmt.Sprintf("[%s] %s", logTypePrefix, text)
 		fmt.Println(time.Now().Format(dateFormat), logString)
@@ -71,7 +71,7 @@ func Line() string {
 
 // TimeStart starts a timer for a given label (default if none given)
 func TimeStart(input ...string) {
-	if GetLogTypeStatus("timer") == true {
+	if getLogTypeStatus("timer") == true {
 		var label string
 		if len(input) == 0 {
 			label = "default"
@@ -84,7 +84,7 @@ func TimeStart(input ...string) {
 
 // TimeEnd stops the timer for the given label and prints the difference in seconds ("timer" option must be set through logger.SetAllowedLogs())
 func TimeEnd(input ...string) {
-	if GetLogTypeStatus("timer") == true {
+	if getLogTypeStatus("timer") == true {
 		var label string
 		if len(input) == 0 {
 			label = "default"
