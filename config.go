@@ -26,6 +26,7 @@ func reset(value bool) {
 func setDefaults() {
 	allowedLogTypes["info"] = true
 	allowedLogTypes["error"] = true
+	allowedLogTypes["fatal"] = true
 }
 
 // SetAllowedLogs defines which type of logs should be printed

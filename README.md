@@ -79,7 +79,7 @@ func main() {
 
 	// SetAllowedLogs
 	// Defines which log types will be printed.
-	// Default: "info|error".
+	// Default: "info|error|fatal".
 	loggr.SetAllowedLogs("info|debug|error|test") // in this case, "test" is a custom type
 	loggr.SetAllowedLogs("none") // disable any logging
 	loggr.SetAllowedLogs("all") // all log types will be printed (good for dev environment)
@@ -153,7 +153,7 @@ Output:
 |---|---|---|
 | SetDateFormat(_`format`_) | `2006-01-02 15:04:05` | Overrides default date/time format.<br>Layouts must use the reference time `Mon Jan 2 15:04:05 MST 2006` according to the official documentation. |
 | SetCustomLog(_`typeName`_) | | Allows to create a custom log type.<br>A custom type called `example` will be converted to `[EXAMPLE]`.<br>Custom types should also be defined in `SetAllowedLogs` in order to be printed.<br>This method must be declared BEFORE `SetAllowedLogs` method. |
-| SetAllowedLogs(_`logTypes`_) | `info|error` | Defines which log types will be printed.<br>You can use any combination you want. Log types must be joined by pipe (|).<br>You can also use `none` to disable logging and `all` to automatically enable all log types. |
+| SetAllowedLogs(_`logTypes`_) | `info|error|fatal` | Defines which log types will be printed.<br>You can use any combination you want. Log types must be joined by pipe (|).<br>You can also use `none` to disable logging and `all` to automatically enable all log types. |
 | Line() | | Prints a line. |
 | TimeStart(_`label`_) | `default` | Starts a timer for a given label. |
 | TimeEnd(_`label`_) | `default` | Ends the timer and prints the difference time in seconds.<br>In order to be displayed, `timer` (or `all`) must be set in `SetAllowedLogs` method.<br>Multiple timers are also allowed. |
