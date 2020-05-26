@@ -20,42 +20,44 @@ func printLog(logType string, text string) {
 	}
 }
 
-// Info prints an information text
+// Info prints the message with `[INFO]` prefix.
 func Info(text string) {
 	printLog("info", text)
 }
 
-// Error prints an error text
+// Error prints the message with `[ERROR]` prefix.
 func Error(text string) {
 	printLog("error", text)
 }
 
-// Warning prints a warning text
+// Warning prints the message with `[WARNING]` prefix.
 func Warning(text string) {
 	printLog("warning", text)
 }
 
-// Notice prints a notice text
+// Notice prints the message with `[NOTICE]` prefix.
 func Notice(text string) {
 	printLog("notice", text)
 }
 
-// Debug prints a debug text
+// Debug prints the message with `[DEBUG]` prefix.
 func Debug(text string) {
 	printLog("debug", text)
 }
 
-// Fatal prints a fatal text
+// Fatal prints the message with `[FATAL]` prefix.
 func Fatal(text string) {
 	printLog("fatal", text)
 }
 
-// SQL prints a query
+// SQL prints the message with `[SQL]` prefix.
 func SQL(query string) {
 	printLog("sql", query)
 }
 
-// Custom prints a custom type of log
+// Custom prints the message with a custom prefix.
+// In order to work, the custom log type must be set in `SetCustomLog` method and defined in `SetAllowedLogs` method.
+// First argument is prefix and second argument is the message. Multiple custom log types are also allowed.
 func Custom(logType string, text string) {
 	printLog(logType, text)
 }
@@ -64,12 +66,12 @@ func printTimer(text string) {
 	printLog("timer", text)
 }
 
-// Line prints a line
+// Line prints a line.
 func Line() string {
 	return "================================================================================"
 }
 
-// TimeStart starts a timer for a given label (default if none given)
+// TimeStart starts a timer for a given label.
 func TimeStart(input ...string) {
 	if getLogTypeStatus("timer") == true {
 		var label string
@@ -82,7 +84,9 @@ func TimeStart(input ...string) {
 	}
 }
 
-// TimeEnd stops the timer for the given label and prints the difference in seconds ("timer" option must be set through logger.SetAllowedLogs())
+// TimeEnd ends the timer and prints the difference time in seconds.
+// In order to be displayed, `timer` (or `all`) must be set in `SetAllowedLogs` method.
+// Multiple timers are also allowed.
 func TimeEnd(input ...string) {
 	if getLogTypeStatus("timer") == true {
 		var label string

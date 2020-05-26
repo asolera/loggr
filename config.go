@@ -29,7 +29,9 @@ func setDefaults() {
 	allowedLogTypes["fatal"] = true
 }
 
-// SetAllowedLogs defines which type of logs should be printed
+// SetAllowedLogs defines which log types will be printed.
+// You can use any combination you want. Log types must be joined by pipe (|).
+// You can also use `none` to disable logging and `all` to automatically enable all log types.
 func SetAllowedLogs(allowedLogTypesString string) {
 	if allowedLogTypesString == "all" {
 		reset(true)
@@ -47,13 +49,16 @@ func SetAllowedLogs(allowedLogTypesString string) {
 	}
 }
 
-// SetCustomLog allows to configure a custom log type (disabled by default).
-// It must be called before "SetAllowedLogs" method
+// SetCustomLog allows to create a custom log type.
+// A custom type called `example` will be converted to `[EXAMPLE]`.
+// Custom types should also be defined in `SetAllowedLogs` in order to be printed.
+// This method must be declared BEFORE `SetAllowedLogs` method.
 func SetCustomLog(logType string) {
 	defaultLogTypes = append(defaultLogTypes, logType)
 }
 
-// SetDateFormat defines a custom format for date/time logging (2006-01-02 15:04:05 by default).
+// SetDateFormat overrides default date/time format.
+// Layouts must use the reference time `Mon Jan 2 15:04:05 MST 2006` according to the official documentation.
 func SetDateFormat(layout string) {
 	dateFormat = layout
 }
